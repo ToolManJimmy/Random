@@ -77,7 +77,7 @@ namespace RandomNum
 
         private void UpdateUI()
         {
-            RandomLabel.Text = randomStr.Replace(randomStr.Split('.')[0] + ". ", ""); ;
+            RandomLabel.Text = randomStr.Replace(randomStr.Split('.')[0] + ". ", "");
         }
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace RandomNum
         }
 
         /// <summary>
-        /// 刪除上一個新增的項目
+        /// 刪除項目
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -137,6 +137,8 @@ namespace RandomNum
             {
                 string text = DeleteTextBox.Text;
                 string[] delStrArray;
+                int num = 0;
+                str = "";
                 delStrArray = text.Split(',');
                 for (int x = 0; x < randomArray.Count(); x++)
                 {
@@ -152,15 +154,18 @@ namespace RandomNum
                     {
                         if (x == 0)
                         {
-                            str += randomArray[x];
+                            num += 1;
+                            str += randomArray[x].Replace(randomArray[x].Split('.')[0] + ". ", num.ToString() + ". ");
                         }
                         else
                         {
-                            str += "\n" + randomArray[x];
+                            num += 1;
+                            str += "\n" + randomArray[x].Replace(randomArray[x].Split('.')[0] + ". ", num.ToString() + ". ");
                         }
                     }
                     TextLable.Text = str;
                 }
+                DeleteTextBox.Text = "";
             }
         }
 
@@ -194,6 +199,14 @@ namespace RandomNum
             if (e.KeyChar == Convert.ToChar(13))
             {
                 EnterBtn_Click(null, null);
+            }
+        }
+
+        private void DeleteTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(13))
+            {
+                DeleteBtn_Click(null, null);
             }
         }
     }

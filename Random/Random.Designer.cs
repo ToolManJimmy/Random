@@ -113,7 +113,7 @@
             // TextLable
             // 
             this.TextLable.AutoSize = true;
-            this.TextLable.Location = new System.Drawing.Point(21, 23);
+            this.TextLable.Location = new System.Drawing.Point(13, 11);
             this.TextLable.Name = "TextLable";
             this.TextLable.Size = new System.Drawing.Size(0, 12);
             this.TextLable.TabIndex = 9;
@@ -121,6 +121,7 @@
             // panel1
             // 
             this.panel1.AutoScroll = true;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.TextLable);
             this.panel1.Location = new System.Drawing.Point(27, 22);
             this.panel1.Name = "panel1";
@@ -133,6 +134,7 @@
             this.DeleteTextBox.Name = "DeleteTextBox";
             this.DeleteTextBox.Size = new System.Drawing.Size(100, 22);
             this.DeleteTextBox.TabIndex = 11;
+            this.DeleteTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DeleteTextBox_KeyPress);
             // 
             // RandomProject
             // 
